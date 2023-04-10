@@ -1,0 +1,237 @@
+a{
+  text-decoration: none;
+}
+ul{
+  list-style: none;
+}
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  margin: 5% 5%;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  /* transform: rotate(-135deg); */
+  /* -webkit-transform: rotate(-135deg); */
+}
+.submenu:checked ~ .arrow{
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+.home-link{
+  width: 80%;
+}
+.menu{width: 90%;}
+/* .up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+} */
+
+/* .down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+} */
+.hamburger-div{
+  width: 55%;
+  /* border: solid 1px black; */
+  /* background-color: aquamarine; */
+  /* width: 30%; */
+  /* height: 10vw; */
+}
+/* Header */
+.header{
+  background-color: #00ffff;
+  height: 30vh;
+  /* box-shadow: 1px 1px 5px 0px #ccc; */
+  /* position: sticky; */
+  /* top: 0; */
+  /* width: 100%; */
+}
+/* Logo */
+.logo{
+  width: 20%;
+  margin: 1%;
+  /* display: inline-block; */
+  color: #fff;
+  /* font-size: 60px; */
+  /* margin-left: 10px; */
+}
+.logo img{
+  width: 100%;
+}
+.login{
+  width: 20%;
+  text-align: center;
+}
+.login img{
+  width: 20%;
+}
+.login span{
+  display: block;
+}
+/* Nav menu */
+.nav{
+  width: 75%;
+  margin-top: 1%;
+  /* height: 100%; */
+  /* position: fixed; */
+  /* background-color: #000; */
+  overflow: hidden;
+
+}
+.menu li{
+  background: #f7d100;
+}
+.menu a{
+  /* display: block; */
+  padding: 1%;
+  /* color: #fff; */
+}
+/* .menu a:hover{
+  background-color: #2d57a4;;
+} */
+.nav{
+  max-height: 0;
+  transition: max-height .5s ease-out;
+}
+
+.hamb{
+  cursor: pointer;
+  float: right;
+  padding: 7% 7%;
+  /* padding: 30px 20px; */
+}/* Style label tag */
+
+.hamb-line {
+  background: #000;
+  display: block;
+  height: 2px;
+  position: relative;
+  width: 24px;
+
+} /* Style span tag */
+
+.hamb-line::before,
+.hamb-line::after{
+  background: #000;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+.hamb-line::before{
+  top: 5px;
+}
+.hamb-line::after{
+  top: -5px;
+}
+
+.side-menu, .submenu {
+  display: none;
+} /* Hide checkbox */
+
+/* Toggle menu icon */
+.side-menu:checked ~ nav{
+  max-height: 100%;
+}
+.side-menu:checked ~ .hamb .hamb-line {
+  background: transparent;
+}
+.side-menu:checked ~ .hamb .hamb-line::before {
+  transform: rotate(-45deg);
+  top:0;
+}
+.side-menu:checked ~ .hamb .hamb-line::after {
+  transform: rotate(45deg);
+  top:0;
+}
+
+/* ----------- */
+
+/* Sub nav */
+.subnav-content {
+  /* background-color:  #5071af; */
+  width: 100%;
+  z-index: 1;
+  padding: 20px 0 ;
+  display: none;
+}
+.subnav-content a {
+  /* color: #2d57a4; */
+  text-decoration: none;
+  padding: 0;
+  margin: 10px 0;
+  text-align: center;
+}
+/* .subnav:hover  */
+/* .menu a:hover */
+.submenu:checked ~ .subnav-content {
+  display: block;
+}
+/* .menu a:hover{
+      background-color: transparent;
+  background: #2d57a4;
+  } */
+/* .... */
+
+
+/* ------------- */
+
+/* Responsiveness */
+@media (min-width: 768px) {
+ 
+  .header{
+    height: 10vw;
+  }
+  .menu{
+    width: 100%;
+    padding: 0;
+  }
+  .subnav a{
+    width: 100%;
+  }
+  /* Sub nav */
+  .subnav-content {
+      /* padding: 20px 0 ; */
+      display: none;
+      /* background-color:  #000; */
+  }
+  /* .subnav-content a {
+      color: white;
+  } */
+  .nav{
+      width: 110%;
+      max-height: none;
+      text-align: center;
+      margin-top: 2%;
+      /* top: 0; */
+      /* position: relative; */
+      /* float: right; */
+      /* width: fit-content; */
+      /* background-color: transparent; */
+  }
+  .menu li{
+    float: left;
+    width: calc(100%/4);
+    min-height: 9vw;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    /* flex-direction: row; */
+    flex-wrap: wrap;
+  }
+  .subnav-content li{
+    width: 100%;
+    min-height: 1vw;
+  }
+  .arrow{
+    padding: 4%;
+  }
+
+  .hamb{
+      display: none;
+  }
+}
