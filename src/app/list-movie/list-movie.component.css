@@ -1,0 +1,15 @@
+.box-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+button{
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+}
+#search{
+    width: 40%;
+    padding: 2%;
+    margin: 1%;
+}

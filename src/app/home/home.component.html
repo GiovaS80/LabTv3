@@ -1,0 +1,26 @@
+<!-- 1.1 Lista dei film in evidenza in Home Page
+Per estrarre i dati della lista dei film da visualizzare al caricamento dell’Home Page dovrete chiamare la seguente API
+• https://api.themoviedb.org/3/movie/popular?api_key=<api_key>&language=en-US&page=1
+oppure
+• https://imdb-api.com/en/API/MostPopularMovies/<api_key> -->
+    <!-- 1. Id
+2. titolo
+3. immagine di copertina
+4. anno -->
+
+<!-- <button class="btn btn-primary" (click)="getListMovie()">Test</button> -->
+<app-list-movie
+  [fullListMovie]="fullListMovie"
+  [searchMovie]="movieToSearch"
+  (movieDetail)="showDetail($event)" 
+  *ngIf="isListVisible"
+></app-list-movie>
+
+<app-detail-movie
+  [detailMovie]="movieDetail"
+  [infoVideo]="videoInfo"
+  (showList)="returnToTheList()"
+  (askRequiredMovie)="searchRequiredMovie($event)"
+  (askVideo)="getInfoVideo($event)"
+  *ngIf="!isListVisible"
+></app-detail-movie>

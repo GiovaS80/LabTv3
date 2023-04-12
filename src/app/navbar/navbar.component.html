@@ -2,7 +2,7 @@
 <header class="header">
   <!-- Logo -->
   <div class="logo fl">
-    <a href="#" ><img src="../../assets/img/logo-tipo.png" alt=""></a>
+    <a [routerLink]="['/LabTvIndex.html']" ><img src="../../assets/img/logo-tipo.png" alt="Home" title="Home"></a>
   </div>
   
   <div class="hamburger-div fl">
@@ -14,26 +14,26 @@
   <!-- Menu -->
   <nav class="nav">
       <ul class="menu">
-        <li class="subnav" id="home"><a class="home-link fl" title="HOME/CATALOGO" href="LabTvIndex.html">HOME / CATALOGO</a>
+        <li class="subnav" id="home"><a class="home-link fl" title="HOME/CATALOGO" [routerLink]="['/LabTvIndex.html']">HOME / CATALOGO</a>
           <input class="submenu" type="checkbox" id="submenu-home">
           <label class="arrow fr" for="submenu-home"></label>         
           <ul  class="subnav-content">
-              <li><a title="SERIE TV" href="SerieTv.html">SERIE TV</a></li>
-              <li><a title="FILM" href="Film.html">FILM</a></li>
-              <li><a title="I Miei Preferiti" href="Favorites.html">I Miei Preferiti</a></li>
+              <!-- <li><a title="SERIE TV" [routerLink]="['/SerieTv.html']">SERIE TV</a></li> -->
+              <!-- <li><a title="FILM" [routerLink]="['/Film.html']">FILM</a></li> -->
+              <li><a title="I Miei Preferiti" [routerLink]="['/Favorites.html']">I Miei Preferiti</a></li>
           </ul>
         </li>
-        <li><a href="#">Login / Registrazione</a></li>
-        <li class="subnav" ><a class="home-link fl" title="HOME/CATALOGO" href="LabTvIndex.html">Contatti</a>
+        <li><a [routerLink]="['/login']">Login / Registrazione</a></li>
+        <li class="subnav" ><a class="contatti fl" title="Contatti" [routerLink]="['/contact']">Contatti</a>
           <input class="submenu" type="checkbox" id="submenu-contact" >
           <label class="arrow fr" for="submenu-contact"></label>         
           <ul  class="subnav-content">
-              <li><a title="SERIE TV" href="SerieTv.html">SERIE TV</a></li>
-              <li><a title="FILM" href="Film.html">FILM</a></li>
-              <li><a title="I Miei Preferiti" href="Favorites.html">I Miei Preferiti</a></li>
+              <li><a title="Twitter" href="https://twitter.com/?lang=it" target="_blank"><i class="fa-brands fa-twitter fa-beat-fade" style="color: #025af2;"></i></a></li>
+              <li><a title="FB" href="https://it-it.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f fa-beat-fade" style="color: #1056d1;"></i></a></li>
+              <li><a title="IG" href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-beat-fade" style="color: #c35322;"></i></a></li>
           </ul>
         </li>
-        <li><a href="#">Ricerca</a> </li>
+        <li><a [routerLink]="['/LabTvIndex.html/ricerca']">Ricerca</a> </li>
       </ul>
   </nav>
 
@@ -41,12 +41,12 @@
 
 
   <div class="login fr">
-    <a href="#" ><img src="../../assets/img/MyAccount.png" alt=""></a>
+    <a [routerLink]="['/login']" ><img src="../../assets/img/MyAccount.png" alt="Login" title="Login"></a>
     <span>MyAccount</span>
   </div>
   
 </header>
-
+<div class="clearfix"></div>
 
 <!-- Home / Catalogo
 • Login / Registrazione

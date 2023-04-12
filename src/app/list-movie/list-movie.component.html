@@ -1,0 +1,24 @@
+<div class="container text-center" *ngIf="isSearchBarVisible">
+  <input id="search" type="text" placeholder="search movie" [ngModel]="search" (ngModelChange)="searchFunction($event)">
+</div>
+
+<h1 class="text-center m-3">Lista Catalogo</h1>
+<div class="box-card" 
+  infinite-scroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="500"
+  (scrolled)="onScroll()"
+>
+    <div class="container text-center" *ngIf="listMovie.length==0">
+      <h2>Nessun film trovato</h2>
+    </div>
+    <div class="card m-1" style="width: 18rem;" *ngFor="let movie of listMovie">
+        <img src={{movie.image}} class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{movie.title}}</h5>
+          <p class="card-text">Anno {{movie.year}}</p>
+          <p class="card-text">Id {{movie.id}}</p>
+          <button class="btn btn-primary" (click)="movieDetailToRequest(movie)" >Dettagli</button>
+        </div>
+      </div>
+</div><!-- END box-card  -->

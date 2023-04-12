@@ -1,0 +1,68 @@
+<div class="container text-center">
+    <h1> {{detailMovie.title}} </h1>
+    <div class="div-btn">
+        <button class="btn btn-secondary m-3" (click)="backToList()">Ritorna alla Lista</button>
+        <button class="btn btn-primary m-3" (click)="showVideo()">Vedi Trailer</button>
+        <button class="btn btn-success m-3" (click)="backToList()">Acquista</button>
+    </div>
+    
+</div>
+
+<div class="container m-3 first-div">
+    <div class="div-img text-center">
+        <img src={{detailMovie.image}} alt="">
+    </div>
+    <div class="div-table m-3">
+        <table class="table text-center">
+            <tr>
+                <th>Id</th>
+                <td>{{detailMovie.id}}</td>
+            </tr>
+            <tr>
+                <th>Genere</th>
+                <td>{{detailMovie.genres}}</td>
+            </tr>
+            <tr>
+                <th>Trama</th>
+                <td>{{detailMovie.plot}}</td>
+            </tr>
+            <tr>
+                <th>Registi</th>
+                <td>{{detailMovie.directors}}</td>
+            </tr>
+            <tr>
+                <th>Attori</th>
+                <td>{{detailMovie.stars}}</td>
+            </tr>
+        </table>
+    </div><!-- END div-table  -->
+</div><!-- END first-div  -->
+<hr>
+<div class="container second-div">
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Elenco Film Simili</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let movie of detailMovie.similars">
+                <td class="movie-title" (click)="requiredMovie(movie.title)">{{movie.title}}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div><!-- END second-div  -->
+
+<div class="fixedPosition text-center" *ngIf="isVideoVisible">
+    <div class="internalBox">
+        <h1>Sono Video</h1>
+        <h1> {{detailMovie.title}} </h1>
+        <img src="../../assets/img/Close.ico" alt="Chiudi Box Video" title="Chiudi Box Video" (click)="closeVideoBox()">
+        <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zcAalMeaKso" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+
+</div>

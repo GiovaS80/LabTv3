@@ -5,3 +5,6 @@
 .fr{
     float: right;
 }
+.min-height{
+    min-height: 70vh;
+}
