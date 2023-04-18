@@ -59,8 +59,9 @@
         <h1>Sono Video</h1>
         <h1> {{detailMovie.title}} </h1>
         <img src="../../assets/img/Close.ico" alt="Chiudi Box Video" title="Chiudi Box Video" (click)="closeVideoBox()">
-        <div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/zcAalMeaKso" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="div-video">
+            <script src="https://www.youtube.com/iframe_api"></script>
+            <youtube-player class="vdo" [playerVars]="playerConfig"  [videoId]="infoVideo" (ready)="onReady($event)"> </youtube-player>
         </div>
     </div>
     

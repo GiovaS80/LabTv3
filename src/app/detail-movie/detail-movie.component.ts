@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-detail-movie',
@@ -7,17 +6,39 @@ import { timeout } from 'rxjs';
   styleUrls: ['./detail-movie.component.css']
 })
 export class DetailMovieComponent {
+  apiLoaded = false;
   ngOnInit(){
+
+    if (!this.apiLoaded) {
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.body.appendChild(tag);
+      this.apiLoaded = true;
+    }
+
     // console.log(this.detailMovie.similars);
   }
   @Input() detailMovie:any={}
-  @Input() infoVideo:any={}
+  @Input() infoVideo:string=''
 
   @Output() showList = new EventEmitter()
   @Output() askRequiredMovie = new EventEmitter<string>()
   @Output() askVideo = new EventEmitter<string>()
 
   isVideoVisible:boolean=false
+
+  // videoId = 'QIZ9aZD6vs0';
+  videoId = '4r5L_PT5-34';
+
+  playerConfig = {
+    controls: 1,
+    mute: 0,
+    autoplay: 1
+  };
+
+  onReady(e: any): void {
+    console.log(e, 'its ready')
+  }
 
   backToList(){
     this.showList.emit()
@@ -30,10 +51,14 @@ export class DetailMovieComponent {
 
   showVideo(){
     this.askVideo.emit(this.detailMovie.id)
-    console.log(this.detailMovie.id);
-    this.isVideoVisible=true
+    // console.log(this.detailMovie.id);
     console.log(this.infoVideo);
-    setTimeout(()=>{console.log(this.infoVideo);
+    // this.videoId=this.infoVideo.videoId
+
+    setTimeout(()=>{
+      console.log(this.infoVideo);
+    this.isVideoVisible=true
+
     },555    )
   }
 

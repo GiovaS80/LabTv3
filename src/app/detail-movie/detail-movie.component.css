@@ -30,8 +30,23 @@
     border: 2px solid coral;
 }
 .internalBox img{
-    width: 7%;
-    height: 7%;
-    float: right;
+    /* width: 7%; */
+    height: 5vw;
+    /* float: right; */
     cursor: pointer;
+    position: fixed;
+    top: 0%;
+    right: 18%;
+}
+.div-video{
+    width: 90%;
+    margin: 1% auto;
+}
+.vdo{
+    display: flex;
+    width: 90%;
+    margin: 15% auto;
+}
+iframe{
+    width: 90%;
 }

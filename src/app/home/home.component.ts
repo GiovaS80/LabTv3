@@ -17,9 +17,7 @@ export class HomeComponent {
   fullListMovie:Array<any>=this.apiService.fullListMovie
   movieDetail:any
 
-  videoInfo:any={
-    test:'vouto'
-  }
+  videoInfo:string=''
 
   isListVisible:boolean=true
 
@@ -52,18 +50,18 @@ export class HomeComponent {
   }//END showDetail
 
   getInfoVideo(id:string){
-    console.log(id);
+    // console.log(id);
     this.apiService.getVideo(id).subscribe(
       {
         next: (result:any) => console.log(result),
         error: (err:any) => {
-          this.videoInfo=this.apiService.videoMovie
-          console.log('sto in errore') 
-          console.log(err)
+          this.videoInfo=this.apiService.videoMovie.videoId
+          // console.log('sto in errore') 
+          // console.log(err)
         },
         complete: () => {
-          this.videoInfo=this.apiService.videoMovie
-          console.log('ok') 
+          console.log('ok ho finito') 
+          this.videoInfo=this.apiService.videoMovie.videoId
         }
       }
     )//END subscribe
