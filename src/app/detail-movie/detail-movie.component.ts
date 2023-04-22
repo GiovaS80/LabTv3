@@ -5,18 +5,18 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './detail-movie.component.html',
   styleUrls: ['./detail-movie.component.css']
 })
-export class DetailMovieComponent {
+export class DetailMovieComponent 
+{
   apiLoaded = false;
-  ngOnInit(){
-
-    if (!this.apiLoaded) {
+  ngOnInit()
+  {
+    if (!this.apiLoaded) 
+    {
       const tag = document.createElement('script');
       tag.src = 'https://www.youtube.com/iframe_api';
       document.body.appendChild(tag);
       this.apiLoaded = true;
     }
-
-    // console.log(this.detailMovie.similars);
   }
   @Input() detailMovie:any={}
   @Input() infoVideo:string=''
@@ -31,43 +31,49 @@ export class DetailMovieComponent {
   // videoId = 'QIZ9aZD6vs0';
   videoId = '4r5L_PT5-34';
 
-  playerConfig = {
+  playerConfig = 
+  {
     controls: 1,
     mute: 0,
     autoplay: 1
   };
 
-  onReady(e: any): void {
+  onReady(e: any): void 
+  {
     console.log(e, 'its ready')
   }
 
-  backToList(){
+  backToList()
+  {
     this.showList.emit()
   }
 
-  requiredMovie(title:string){
+  requiredMovie(title:string)
+  {
     console.log(title);
     this.askRequiredMovie.emit(title)
   }
 
-  showVideo(){
+  showVideo()
+  {
     this.askVideo.emit(this.detailMovie.id)
     // console.log(this.detailMovie.id);
     console.log(this.infoVideo);
     // this.videoId=this.infoVideo.videoId
-
-    setTimeout(()=>{
+    setTimeout(()=>
+    {
       console.log(this.infoVideo);
-    this.isVideoVisible=true
-
+      this.isVideoVisible=true
     },555    )
   }
 
-  closeVideoBox(){
+  closeVideoBox()
+  {
     this.isVideoVisible=false
   }
 
-  buy(){
+  buy()
+  {
     this.movieForPurchase.emit()
   }
   

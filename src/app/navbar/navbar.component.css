@@ -42,7 +42,7 @@ ul{
 /* Header */
 .header{
   background-color: #00ffff;
-  height: 30vh;
+  height: 30vw;
   /* box-shadow: 1px 1px 5px 0px #ccc; */
   /* position: sticky; */
   /* top: 0; */
@@ -184,7 +184,7 @@ ul{
 @media (min-width: 768px) {
  
   .header{
-    height: 21vw;
+    height: 14vw;
   }
   .menu{
     width: 100%;

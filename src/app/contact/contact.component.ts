@@ -12,14 +12,8 @@ export class ContactComponent {
   areTheDataCorrect:boolean=false
   userName:string=''
   sendData(form:NgForm){
-    console.log(form.value)
-    console.log(form.value.name)
     this.userName=form.value.name
     this.areTheDataCorrect=true
-  }
-
-  test(value:any){
-    // console.log(value)
   }
   
 }//END class ContactComponent

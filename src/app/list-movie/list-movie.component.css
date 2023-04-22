@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-button{
+.div-vdo button{
     position: absolute;
     bottom: 1%;
     right: 1%;
@@ -12,4 +12,7 @@ button{
     width: 40%;
     padding: 2%;
     margin: 1%;
+}
+.div-vdo{
+    width: 18rem;
 }

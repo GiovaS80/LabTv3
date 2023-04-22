@@ -7,33 +7,56 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-  constructor(
+export class HomeComponent 
+{
+  constructor
+  (
     private apiService: ApiService,
     private router: Router
   ) { }
-  ngOnInit(): void { }
+  ngOnInit(): void 
+  {
+    if(this.apiService.fullListMovie.length==0)
+    {
+      this.getListMovie()
+    }
+    else
+    {
+      this.fullListMovie=this.apiService.fullListMovie
+      this.isThereAnError=false
+      this.isListVisible=true
+      console.log(this.apiService.fullListMovie.length);
+    }
+  }
 
-  fullListMovie: Array<any> = this.apiService.fullListMovie
+  fullListMovie: Array<any> = []
   movieDetail: any
 
   videoInfo: string = ''
-
-  isListVisible: boolean = true
-
   movieToSearch: string = ''
+  errorMsg:string = ''
 
-  getListMovie() {
+  isThereAnError:boolean = true
+  isListVisible: boolean = false
+  isDetailVisible: boolean = false
+
+
+  getListMovie() 
+  {
     this.apiService.getList().subscribe(
       {
-        next: (result: any) => console.log(result),
+        next: (result: any) => 
+        {
+          console.log(result)
+        },
         error: (err: any) => console.log(err),
         complete: () => console.log()
       }
     )//END subscribe
   }//END getListMovie
 
-  showDetail(id: string) {
+  showDetail(id: string) 
+  {
     // this.apiService.getDetail(id).subscribe(
     //   {
     //     next: (result:any) => console.log(result),
@@ -44,12 +67,14 @@ export class HomeComponent {
     this.movieDetail = this.apiService.chosenMovie
 
     this.isListVisible = false
+    this.isDetailVisible=true
     // console.log(id);
 
     // this.apiService.getDetail(id)   
   }//END showDetail
 
-  getInfoVideo(id: string) {
+  getInfoVideo(id: string) 
+  {
     // console.log(id);
     this.apiService.getVideo(id).subscribe(
       {
@@ -68,25 +93,28 @@ export class HomeComponent {
     console.log(this.videoInfo);
   }//END getInfoVideo
 
-  returnToTheList() {
+  returnToTheList() 
+  {
     this.isListVisible = true
+    this.isDetailVisible = false
   }
 
-  searchRequiredMovie(title: string) {
-    // console.log(title);
+  searchRequiredMovie(title: string) 
+  {
     this.movieToSearch = title
     this.returnToTheList()
     //  this.router.navigate(['/LabTvIndex.html/ricerca'])
   }
 
-  addToFavorites() {
-    if (this.apiService.favoriteMovie.includes(this.movieDetail)) {
+  addToFavorites() 
+  {
+    if (this.apiService.favoriteMovie.includes(this.movieDetail)) 
+    {
       alert(`Il Film ${this.movieDetail.title} e' gia' presente nella Tua area riservata`)
     }
-    else {
+    else 
+    {
       this.apiService.favoriteMovie.push(this.movieDetail)
-      console.log(this.movieDetail);
-      console.log(this.apiService.favoriteMovie);
       alert(`Il Film ${this.movieDetail.title} e' stato aggiunto nella Tua area riservata`)
     }
   }//END addToFavorites

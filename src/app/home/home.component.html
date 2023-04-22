@@ -9,6 +9,12 @@ oppure
 4. anno -->
 
 <!-- <button class="btn btn-primary" (click)="getListMovie()">Test</button> -->
+
+<div>
+  <h2>Si e' verificato il seguente errore:</h2>
+  <h3> {{errorMsg}} </h3>
+</div>
+
 <app-list-movie
   [fullListMovie]="fullListMovie"
   [searchMovie]="movieToSearch"
@@ -23,5 +29,5 @@ oppure
   (askRequiredMovie)="searchRequiredMovie($event)"
   (askVideo)="getInfoVideo($event)"
   (movieForPurchase)="addToFavorites()"
-  *ngIf="!isListVisible"
+  *ngIf="isDetailVisible"
 ></app-detail-movie>

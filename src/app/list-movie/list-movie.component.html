@@ -3,12 +3,13 @@
 </div>
 
 <h1 class="text-center m-3">Lista Catalogo</h1>
-<div class="box-card" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="500"
+<div class="box-card min-height" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="500"
   (scrolled)="onScroll()">
   <div class="container text-center" *ngIf="listMovie.length==0">
     <h2>Nessun film trovato</h2>
+    <button class="btn btn-secondary" (click)="back()">Torna alla lista</button>
   </div>
-  <div class="card m-1" style="width: 18rem;" *ngFor="let movie of listMovie">
+  <div class="card m-1 div-vdo" *ngFor="let movie of listMovie">
     <img src={{movie.image}} class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{movie.title}}</h5>
