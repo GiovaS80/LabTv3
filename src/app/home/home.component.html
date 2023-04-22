@@ -22,5 +22,6 @@ oppure
   (showList)="returnToTheList()"
   (askRequiredMovie)="searchRequiredMovie($event)"
   (askVideo)="getInfoVideo($event)"
+  (movieForPurchase)="addToFavorites()"
   *ngIf="!isListVisible"
 ></app-detail-movie>

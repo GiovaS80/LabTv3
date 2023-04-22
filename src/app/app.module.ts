@@ -14,6 +14,10 @@ import { DetailMovieComponent } from './detail-movie/detail-movie.component';
 import { LoginComponent } from './login/login.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
+import { RestrictedAreaComponent } from './restrictedArea/restrictedArea.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { FooterComponent } from './footer/footer.component';
     DetailMovieComponent,
     LoginComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
+    RestrictedAreaComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

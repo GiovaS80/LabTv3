@@ -1,0 +1,47 @@
+<div class="container text-center">
+    <h2>Registrati</h2>
+
+    <form (ngSubmit)="sendData(f)" #f="ngForm">
+        <div class="form-group m-3">
+            <label for="firstname">Nome</label>
+            <input class="form-control" type="text" id="firstname" name="firstname" required
+                placeholder="Scrivi il Tuo Nome" pattern="[a-zA-Z ]*" ngModel>
+            <span class="text-danger" *ngIf="f.controls['firstname']?.invalid && f.controls['firstname'].dirty">Il Nome
+                è
+                obbligatorio; Il nome deve contenere solo caratteri alfabetici</span>
+        </div>
+
+        <div class="form-group m-3">
+            <label for="lastname">Cognome</label>
+            <input class="form-control" type="text" id="lastname" name="lastname" required
+                placeholder="Scrivi il Tuo Cognome" pattern="[a-zA-Z ]*" ngModel>
+            <span class="text-danger" *ngIf="f.controls['lastname']?.invalid && f.controls['lastname'].dirty">Il Cogome
+                è
+                obbligatorio; Il cognome deve contenere solo caratteri alfabetici</span>
+        </div>
+
+        <div class="form-group m-3">
+            <label for="email">Email</label>
+            <input class="form-control" type="email" id="email" name="email" required
+                placeholder="Scrivi il Tuo indirizzo email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel>
+            <span class="text-danger"
+                *ngIf="f.controls['email']?.invalid && f.controls['email'].dirty && f.controls['email'].touched">
+                L'email è obbligatoria; l'email deve essere correttamente formattata
+            </span>
+        </div>
+
+        <div class="form-group m-3">
+            <label for="password">Password</label>
+            <input class="form-control" type="password" id="password" name="password" required
+                placeholder="Inserisci la Password" ngModel
+                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}">
+            <span class="text-danger"
+                *ngIf="f.controls['password']?.invalid && f.controls['password'].dirty && f.controls['password'].touched">
+                La password é obblogatoria; la password deve avere minimo 8 carratteri, minimo una lettera maiuscola una
+                minuscola un numero un carattere speciale.
+            </span>
+        </div>
+
+        <button type="submit" class="btn btn-primary m-3" [disabled]="f.invalid">Invia</button>
+    </form>
+</div>

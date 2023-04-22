@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "email": "giomain.pv@gmail.com",
+      "password": "$2a$10$nVD3Ya1OkehOkK7AEBr7L.U.crqCndhmrVU1S6zqiv4PlEnseV1DG",
+      "firstname": "Giovanni",
+      "lastname": "Manichetti",
+      "idMovie": [],
+      "id": 1
+    }
+  ],
+  "posts": []
+}

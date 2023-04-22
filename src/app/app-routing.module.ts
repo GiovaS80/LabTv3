@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
+import { RestrictedAreaComponent } from './restrictedArea/restrictedArea.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   // {path:'', redirectTo:'/LabTvIndex.html'},
@@ -10,7 +12,9 @@ const routes: Routes = [
   {path:'LabTvIndex.html/ricerca', component:HomeComponent},
   {path:'LabTvIndex.html', component:HomeComponent},
   {path:'contact', component:ContactComponent},
+  {path:'favorite', component:RestrictedAreaComponent},
   {path:'login', component:LoginComponent},
+  {path:"**", component:NotFoundComponent},
 ];
 
 @NgModule({

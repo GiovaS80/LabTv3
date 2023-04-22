@@ -3,9 +3,8 @@
     <div class="div-btn">
         <button class="btn btn-secondary m-3" (click)="backToList()">Ritorna alla Lista</button>
         <button class="btn btn-primary m-3" (click)="showVideo()">Vedi Trailer</button>
-        <button class="btn btn-success m-3" (click)="backToList()">Acquista</button>
+        <button class="btn btn-success m-3" (click)="buy()">Acquista</button>
     </div>
-    
 </div>
 
 <div class="container m-3 first-div">
@@ -56,7 +55,6 @@
 
 <div class="fixedPosition text-center" *ngIf="isVideoVisible">
     <div class="internalBox">
-        <h1>Sono Video</h1>
         <h1> {{detailMovie.title}} </h1>
         <img src="../../assets/img/Close.ico" alt="Chiudi Box Video" title="Chiudi Box Video" (click)="closeVideoBox()">
         <div class="div-video">

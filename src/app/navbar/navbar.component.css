@@ -169,7 +169,7 @@ ul{
 /* .subnav:hover  */
 /* .menu a:hover */
 .submenu:checked ~ .subnav-content {
-  display: block;
+  display: flex;
 }
 /* .menu a:hover{
       background-color: transparent;
@@ -184,7 +184,7 @@ ul{
 @media (min-width: 768px) {
  
   .header{
-    height: 12vw;
+    height: 21vw;
   }
   .menu{
     width: 100%;

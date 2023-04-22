@@ -24,6 +24,7 @@ export class DetailMovieComponent {
   @Output() showList = new EventEmitter()
   @Output() askRequiredMovie = new EventEmitter<string>()
   @Output() askVideo = new EventEmitter<string>()
+  @Output() movieForPurchase = new EventEmitter()
 
   isVideoVisible:boolean=false
 
@@ -66,5 +67,8 @@ export class DetailMovieComponent {
     this.isVideoVisible=false
   }
 
+  buy(){
+    this.movieForPurchase.emit()
+  }
   
 }//END class DetailMovieComponent

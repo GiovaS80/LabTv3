@@ -15,16 +15,14 @@
   <nav class="nav">
       <ul class="menu">
         <li class="subnav" id="home"><a class="home-link fl" title="HOME/CATALOGO" [routerLink]="['/LabTvIndex.html']">HOME / CATALOGO</a>
-          <input class="submenu" type="checkbox" id="submenu-home">
-          <label class="arrow fr" for="submenu-home"></label>         
+          <input *ngIf="isLoggedin" class="submenu" type="checkbox" id="submenu-home">
+          <label *ngIf="isLoggedin" class="arrow fr" for="submenu-home"></label>         
           <ul  class="subnav-content">
-              <!-- <li><a title="SERIE TV" [routerLink]="['/SerieTv.html']">SERIE TV</a></li> -->
-              <!-- <li><a title="FILM" [routerLink]="['/Film.html']">FILM</a></li> -->
-              <li><a title="I Miei Preferiti" [routerLink]="['/Favorites.html']">I Miei Preferiti</a></li>
+              <li><a title="I Miei Preferiti" [routerLink]="['/favorite']">I Miei Preferiti</a></li>
           </ul>
         </li>
         <li><a [routerLink]="['/login']">Login / Registrazione</a></li>
-        <li class="subnav" ><a class="contatti fl" title="Contatti" [routerLink]="['/contact']">Contatti</a>
+        <li class="subnav" ><a class="contatti " title="Contatti" [routerLink]="['/contact']">Contatti</a>
           <input class="submenu" type="checkbox" id="submenu-contact" >
           <label class="arrow fr" for="submenu-contact"></label>         
           <ul  class="subnav-content">
@@ -42,7 +40,7 @@
 
   <div class="login fr">
     <a [routerLink]="['/login']" ><img src="../../assets/img/MyAccount.png" alt="Login" title="Login"></a>
-    <span>MyAccount</span>
+    <span> {{userName}} </span>
   </div>
   
 </header>

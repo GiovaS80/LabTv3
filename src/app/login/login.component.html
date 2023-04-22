@@ -1,1 +1,22 @@
-<p>login works!</p>
+<div class="container text-center m-3">
+    <p *ngIf="isLoginVisible">Non Sei ancora Registrato? <span (click)="onReg()">Registrati Ora</span> </p>
+    <p *ngIf="isRegVisible">Ritorna alla pagina di <span (click)="onLogin()">LogIn</span> </p>
+    <h6 *ngIf="isLoggedin" (click)="onLogout()">LogOut</h6>
+</div>
+
+<app-login-form 
+    *ngIf="isLoginVisible"
+    [loginUser]="userLogin"
+    (transferData)="login($event)"
+></app-login-form>
+
+<app-register-form 
+    *ngIf="isRegVisible"
+    [regUser]="userReg"
+    (transferData)="registerUser($event)"
+></app-register-form>
+
+
+<!-- <button class="btn btn-primary m-3" (click)="gettAllUser()">Get</button> -->
+<!-- <button class="btn btn-primary m-3" (click)="registerUser()">Reg</button> -->
+<!-- <button class="btn btn-primary m-3" (click)="login()">Log</button> -->
