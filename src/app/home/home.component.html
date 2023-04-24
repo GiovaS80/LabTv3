@@ -3,31 +3,33 @@ Per estrarre i dati della lista dei film da visualizzare al caricamento dell’H
 • https://api.themoviedb.org/3/movie/popular?api_key=<api_key>&language=en-US&page=1
 oppure
 • https://imdb-api.com/en/API/MostPopularMovies/<api_key> -->
-    <!-- 1. Id
+<!-- 1. Id
 2. titolo
 3. immagine di copertina
 4. anno -->
 
 <!-- <button class="btn btn-primary" (click)="getListMovie()">Test</button> -->
-
-<div>
+<div *ngIf="!didTheDataArrive" class="loader"></div>
+<div class="container min-height text-center m-3" *ngIf="errorMsg!=''">
   <h2>Si e' verificato il seguente errore:</h2>
   <h3> {{errorMsg}} </h3>
 </div>
 
-<app-list-movie
-  [fullListMovie]="fullListMovie"
-  [searchMovie]="movieToSearch"
-  (movieDetail)="showDetail($event)" 
+
+
+<app-list-movie 
+  [fullListMovie]="fullListMovie" 
+  [searchMovie]="movieToSearch" 
+  (movieDetail)="showDetail($event)"
   *ngIf="isListVisible"
 ></app-list-movie>
 
-<app-detail-movie
-  [detailMovie]="movieDetail"
-  [infoVideo]="videoInfo"
+<app-detail-movie 
+  [detailMovie]="movieDetail" 
+  [infoVideo]="videoInfo" 
   (showList)="returnToTheList()"
-  (askRequiredMovie)="searchRequiredMovie($event)"
+  (askRequiredMovie)="searchRequiredMovie($event)" 
   (askVideo)="getInfoVideo($event)"
-  (movieForPurchase)="addToFavorites()"
+  (movieForPurchase)="addToFavorites()" 
   *ngIf="isDetailVisible"
 ></app-detail-movie>

@@ -7,8 +7,7 @@ export class ApiService
 {
     constructor(private http: HttpClient) { }
     apiKeyImdb: string = 'k_5b2jac4w'
-    wsImdbList: string = ''
-    // 'https://imdb-api.com/en/API/MostPopularMovies/'+this.apiKeyImdb
+    wsImdbList: string = 'https://imdb-api.com/en/API/MostPopularMovies/'+this.apiKeyImdb
     //id image title plot stars directors genres similars[{title}]
     cont:number=0
     getList(): Observable<any> 
@@ -21,20 +20,18 @@ export class ApiService
     getDetail(id: string): Observable<any> 
     {
         console.log(id);
-        const wsImdbDetail = ''
-        // `https://imdb-api.com/it/API/Title/${this.apiKeyImdb}/${id}`
+        const wsImdbDetail = `https://imdb-api.com/it/API/Title/${this.apiKeyImdb}/${id}`
         return this.http.get(wsImdbDetail)
     }
 
     getVideo(id: string): Observable<any> 
     {
-        const wsImdbVideo = ''
-        // `https://imdb-api.com/en/API/YouTubeTrailer/${this.apiKeyImdb}/${id}`
+        const wsImdbVideo = `https://imdb-api.com/en/API/YouTubeTrailer/${this.apiKeyImdb}/${id}`
         return this.http.get(wsImdbVideo)
     }
 
-    fullListMovie: Array<any> =[]
-    fullListMovies: Array<any> = [
+    fullListMovies: Array<any> =[]
+    fullListMovie: Array<any> = [
         {
             "id": "tt10366206",
             "rank": "1",

@@ -48,7 +48,7 @@
             <tr *ngFor="let movie of detailMovie.similars">
                 <td class="movie-title" (click)="requiredMovie(movie.title)">{{movie.title}}</td>
             </tr>
-            
+
         </tbody>
     </table>
 </div><!-- END second-div  -->
@@ -59,7 +59,8 @@
         <img src="../../assets/img/Close.ico" alt="Chiudi Box Video" title="Chiudi Box Video" (click)="closeVideoBox()">
         <div class="div-video">
             <script src="https://www.youtube.com/iframe_api"></script>
-            <youtube-player class="vdo" [playerVars]="playerConfig"  [videoId]="infoVideo" (ready)="onReady($event)"> </youtube-player>
+            <youtube-player class="vdo" [playerVars]="playerConfig" [videoId]="infoVideo" (ready)="onReady($event)">
+            </youtube-player>
         </div>
     </div>
 </div>

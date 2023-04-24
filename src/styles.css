@@ -1,10 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
-.fl{
-    float: left;
+.fl {float: left;}
+
+.fr {float: right;}
+
+.min-height {min-height: 70vh;}
+
+.loader 
+{
+    margin: 1% auto;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid blue;
+    border-right: 16px solid green;
+    border-bottom: 16px solid red;
+    border-left: 16px solid pink;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
 }
-.fr{
-    float: right;
+
+@-webkit-keyframes spin 
+{
+    0% {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}
 }
-.min-height{
-    min-height: 70vh;
+
+@keyframes spin 
+{
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
 }

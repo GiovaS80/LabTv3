@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-home',
@@ -10,23 +11,22 @@ import { Router } from '@angular/router';
 export class HomeComponent 
 {
   constructor
-  (
-    private apiService: ApiService,
-    private router: Router
-  ) { }
+    (
+      private apiService: ApiService,
+      private loginService: LoginService,
+      private router: Router
+    ) { }
   ngOnInit(): void 
   {
-    if(this.apiService.fullListMovie.length==0)
+    if (this.apiService.fullListMovie.length != 0) 
     {
-      this.getListMovie()
-    }
-    else
-    {
-      this.fullListMovie=this.apiService.fullListMovie
-      this.isThereAnError=false
-      this.isListVisible=true
+      this.fullListMovie = this.apiService.fullListMovie
+      this.errorMsg = ''
+      this.isListVisible = true
+      this.didTheDataArrive = true
       console.log(this.apiService.fullListMovie.length);
     }
+    else {this.getListMovie()}
   }
 
   fullListMovie: Array<any> = []
@@ -34,63 +34,88 @@ export class HomeComponent
 
   videoInfo: string = ''
   movieToSearch: string = ''
-  errorMsg:string = ''
+  errorMsg: string = ''
 
-  isThereAnError:boolean = true
+  didTheDataArrive: boolean = false
   isListVisible: boolean = false
   isDetailVisible: boolean = false
 
 
   getListMovie() 
   {
-    this.apiService.getList().subscribe(
+    this.didTheDataArrive = false
+    this.apiService.getList().subscribe
+    (
       {
         next: (result: any) => 
         {
-          console.log(result)
+          this.errorMsg = result.errorMessage
+          this.apiService.fullListMovie = this.fullListMovie = result.items
         },
-        error: (err: any) => console.log(err),
-        complete: () => console.log()
+        error: (err: any) => 
+        {
+          this.errorMsg = err.name + '\n' + err.message
+          console.error(err)
+        },
+        complete: () => 
+        {
+          this.didTheDataArrive = true
+          this.isListVisible = true
+        }
       }
     )//END subscribe
   }//END getListMovie
 
   showDetail(id: string) 
   {
-    // this.apiService.getDetail(id).subscribe(
-    //   {
-    //     next: (result:any) => console.log(result),
-    //     error: (err:any) => console.log(err),
-    //     complete: () => console.log() 
-    //   }
-    // )//END subscribe
-    this.movieDetail = this.apiService.chosenMovie
-
+    this.didTheDataArrive = false
     this.isListVisible = false
-    this.isDetailVisible=true
-    // console.log(id);
-
-    // this.apiService.getDetail(id)   
+    this.apiService.getDetail(id).subscribe
+    (
+      {
+        next: (result: any) => 
+        {
+          this.errorMsg = result.errorMessage
+          this.movieDetail = result
+          console.log(result)
+        },
+        error: (err: any) => 
+        {
+          this.errorMsg = err.name + '\n' + err.message
+          console.error(err)
+        },
+        complete: () => 
+        {
+          this.didTheDataArrive = true
+          this.isDetailVisible = true
+        }
+      }
+    )//END subscribe    
   }//END showDetail
 
   getInfoVideo(id: string) 
   {
-    // console.log(id);
-    this.apiService.getVideo(id).subscribe(
+    this.didTheDataArrive = false
+    this.apiService.getVideo(id).subscribe
+    (
       {
-        next: (result: any) => console.log(result),
-        error: (err: any) => {
-          this.videoInfo = this.apiService.videoMovie.videoId
-          // console.log('sto in errore') 
-          // console.log(err)
+        next: (result: any) => 
+        {
+          this.errorMsg = result.errorMessage
+          this.videoInfo = result.videoId
+          console.log(result)
         },
-        complete: () => {
-          console.log('ok ho finito')
-          this.videoInfo = this.apiService.videoMovie.videoId
-        }
+        error: (err: any) => 
+        {
+          this.errorMsg = err.name + '\n' + err.message
+          this.isDetailVisible=false
+          console.error(err)
+        },
+        complete: () => this.didTheDataArrive = true
       }
     )//END subscribe
-    console.log(this.videoInfo);
+    // this.videoInfo = this.apiService.videoMovie.videoId
+    // console.log(this.videoInfo);
   }//END getInfoVideo
 
   returnToTheList() 
@@ -103,20 +128,26 @@ export class HomeComponent
   {
     this.movieToSearch = title
     this.returnToTheList()
-    //  this.router.navigate(['/LabTvIndex.html/ricerca'])
   }
 
-  addToFavorites() 
-  {
-    if (this.apiService.favoriteMovie.includes(this.movieDetail)) 
+  addToFavorites() {
+    if (this.loginService.IsLoggedIn()) 
     {
-      alert(`Il Film ${this.movieDetail.title} e' gia' presente nella Tua area riservata`)
-    }
-    else 
+      if (this.apiService.favoriteMovie.includes(this.movieDetail)) 
+      {
+        alert(`Il Film ${this.movieDetail.title} e' gia' presente nella Tua area riservata`)
+      }
+      else 
+      {
+        this.apiService.favoriteMovie.push(this.movieDetail)
+        alert(`Il Film ${this.movieDetail.title} e' stato aggiunto nella Tua area riservata`)
+      }
+    }//END if user is loggedin
+    else
     {
-      this.apiService.favoriteMovie.push(this.movieDetail)
-      alert(`Il Film ${this.movieDetail.title} e' stato aggiunto nella Tua area riservata`)
+      alert('Effettua il LogIn per Aquistare. Se non sei Registrato, registrati per non perdere le novita.')
     }
+
   }//END addToFavorites
 
 }//END class HomeComponent
