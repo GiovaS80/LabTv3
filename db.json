@@ -7,6 +7,14 @@
       "lastname": "Manichetti",
       "idMovie": [],
       "id": 1
+    },
+    {
+      "email": "b@m.it",
+      "password": "$2a$10$fGFHSxhe99SnjfrhproQUuaP71adnArlrq7TD.o/M941Zb1S3iqXW",
+      "firstname": "Giovanni",
+      "lastname": "Manichetti",
+      "idMovie": [],
+      "id": 2
     }
   ],
   "posts": []

@@ -6,7 +6,8 @@ import { NgForm } from '@angular/forms';
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.css']
 })
-export class RegisterFormComponent {
+export class RegisterFormComponent 
+{
 
   @Input() regUser:any = { }
 

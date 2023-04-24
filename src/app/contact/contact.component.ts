@@ -6,14 +6,12 @@ import { NgForm } from '@angular/forms';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent {
+export class ContactComponent 
+{
   ngOnInit(): void {}
 
-  areTheDataCorrect:boolean=false
   userName:string=''
-  sendData(form:NgForm){
-    this.userName=form.value.name
-    this.areTheDataCorrect=true
-  }
+  
+  sendData(form:NgForm){this.userName=form.value.name}
   
 }//END class ContactComponent

@@ -1,5 +1,5 @@
 <!-- Navigation bar -->
-<header class="header">
+<header class="header {{boo}} " >
   <!-- Logo -->
   <div class="logo fl">
     <a [routerLink]="['/LabTvIndex.html']" ><img src="../../assets/img/logo-tipo.png" alt="Home" title="Home"></a>
@@ -7,7 +7,7 @@
   
   <div class="hamburger-div fl">
     <!-- Hamburger icon -->
-    <input class="side-menu" type="checkbox" id="side-menu"/>
+    <input [(ngModel)]="isChecked"  (click)="sideMenu(isChecked)" class="side-menu" type="checkbox" id="side-menu"/>
     <label class="hamb" for="side-menu">
       <span class="hamb-line"></span>
     </label>
@@ -21,7 +21,7 @@
               <li><a title="I Miei Preferiti" [routerLink]="['/favorite']">I Miei Preferiti</a></li>
           </ul>
         </li>
-        <li><a [routerLink]="['/login']">Login / Registrazione</a></li>
+        <li><a [routerLink]="['/login']"> {{log}} </a></li>
         <li class="subnav" ><a class="contatti " title="Contatti" [routerLink]="['/contact']">Contatti</a>
           <input class="submenu" type="checkbox" id="submenu-contact" >
           <label class="arrow fr" for="submenu-contact"></label>         
@@ -29,6 +29,7 @@
               <li><a title="Twitter" href="https://twitter.com/?lang=it" target="_blank"><i class="fa-brands fa-twitter fa-beat-fade" style="color: #025af2;"></i></a></li>
               <li><a title="FB" href="https://it-it.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f fa-beat-fade" style="color: #1056d1;"></i></a></li>
               <li><a title="IG" href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-beat-fade" style="color: #c35322;"></i></a></li>
+              <li><a title="YT" href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube fa-beat-fade" style="color: #eb460f;"></i></a></li>
           </ul>
         </li>
         <li><a [routerLink]="['/LabTvIndex.html/ricerca']">Ricerca</a> </li>
@@ -37,9 +38,8 @@
 
   </div>
 
-
   <div class="login fr">
-    <a [routerLink]="['/login']" ><img src="../../assets/img/MyAccount.png" alt="Login" title="Login"></a>
+    <a [routerLink]="['/login']" ><img src="../../assets/img/MyAccount.png" alt="Login" title= {{userName}} ></a>
     <span> {{userName}} </span>
   </div>
   

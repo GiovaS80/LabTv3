@@ -19,7 +19,6 @@ export class ApiService
 
     getDetail(id: string): Observable<any> 
     {
-        console.log(id);
         const wsImdbDetail = `https://imdb-api.com/it/API/Title/${this.apiKeyImdb}/${id}`
         return this.http.get(wsImdbDetail)
     }

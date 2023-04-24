@@ -1,18 +1,19 @@
-.box-card{
+.box-card
+{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-.div-vdo button{
+.div-vdo button
+{
     position: absolute;
     bottom: 1%;
     right: 1%;
 }
-#search{
+#search
+{
     width: 40%;
     padding: 2%;
     margin: 1%;
 }
-.div-vdo{
-    width: 18rem;
-}
+.div-vdo{width: 18rem;}

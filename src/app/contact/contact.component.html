@@ -1,10 +1,10 @@
-<div class="container text-center min-height" *ngIf="!areTheDataCorrect">
+<div class="container text-center min-height" *ngIf="userName==''">
     <h2>Contattaci</h2>
 
     <form (ngSubmit)="sendData(f)" #f ="ngForm">
         <div class="form-group m-3">
             <label for="name">Nome</label>
-            <input class= "form-control" 
+            <input class= "form-control capitalize" 
                 type="text" id="name" name = "name" required placeholder="Inserire Il tuo nome"
                 pattern="[a-zA-Z ]*" ngModel>
             <span class="text-danger" *ngIf="f.controls['name']?.invalid && f.controls['name'].dirty">Il Nome è obbligatorio; Il nome deve contenere solo caratteri alfabetici</span>
@@ -12,7 +12,7 @@
 
         <div class="form-group m-3">
             <label for="email">Email</label>
-            <input class="form-control" type="email" id="email" name = "email" required placeholder="Inserire Il tuo indirizzo email" pattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel>
+            <input class="form-control lowercase" type="email" id="email" name = "email" required placeholder="Inserire Il tuo indirizzo email" pattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel>
             <span class="text-danger" *ngIf="f.controls['email']?.invalid && f.controls['email'].dirty">
                 L'email è obbligatoria; l'email deve essere correttamente formattata
             </span>
@@ -27,7 +27,7 @@
 
     </form>
 </div><!-- END Div container -->
-<div class="container text-center m-3 min-height" *ngIf="areTheDataCorrect">
+<div class="container text-center m-3 min-height" *ngIf="userName!=''">
     <h1> {{userName}} Grazie per Averci Scritto</h1>
     <h2>Presto, Ti invieremo una mail di contatto</h2>
 </div>

@@ -9,17 +9,12 @@ import { Router } from '@angular/router';
 })
 export class ListMovieComponent 
 {
-  public href: string = "";
   constructor(private router:Router){}
   ngOnInit():void
   { 
     this.listMovie=this.fullListMovie.slice(0,24)
     this.index=25
     this.href = this.router.url;
-    // console.log(this.fullListMovie);
-    // console.log(this.router.url);
-    // console.log(this.router.url=='/LabTvIndex.html/ricerca');
-    // console.log(this.searchMovie);
     if(this.searchMovie!='')
     {      
       this.search=this.searchMovie
@@ -37,13 +32,11 @@ export class ListMovieComponent
   index:number=0
 
   search:string=''
+  public href: string = "";
 
   isSearchBarVisible:boolean=this.router.url=='/LabTvIndex.html/ricerca'
 
-  movieDetailToRequest(movie:any)
-  {
-    this.movieDetail.emit(movie.id)
-  }
+  movieDetailToRequest(movie:any){this.movieDetail.emit(movie.id)}
 
   onScroll()
   {
@@ -63,9 +56,6 @@ export class ListMovieComponent
     })
   }
 
-  back()
-  {
-    this.searchFunction('')
-  }
+  back(){this.searchFunction('')}
 
 }//END class ListMovieComponent

@@ -1,10 +1,10 @@
-<div class="container text-center">
+<div class="container text-center min-height">
     <h2>Registrati</h2>
 
     <form (ngSubmit)="sendData(f)" #f="ngForm">
         <div class="form-group m-3">
             <label for="firstname">Nome</label>
-            <input class="form-control" type="text" id="firstname" name="firstname" required
+            <input class="form-control capitalize" type="text" id="firstname" name="firstname" required
                 placeholder="Scrivi il Tuo Nome" pattern="[a-zA-Z ]*" ngModel>
             <span class="text-danger" *ngIf="f.controls['firstname']?.invalid && f.controls['firstname'].dirty">Il Nome
                 è
@@ -13,7 +13,7 @@
 
         <div class="form-group m-3">
             <label for="lastname">Cognome</label>
-            <input class="form-control" type="text" id="lastname" name="lastname" required
+            <input class="form-control capitalize" type="text" id="lastname" name="lastname" required
                 placeholder="Scrivi il Tuo Cognome" pattern="[a-zA-Z ]*" ngModel>
             <span class="text-danger" *ngIf="f.controls['lastname']?.invalid && f.controls['lastname'].dirty">Il Cogome
                 è
@@ -22,7 +22,7 @@
 
         <div class="form-group m-3">
             <label for="email">Email</label>
-            <input class="form-control" type="email" id="email" name="email" required
+            <input class="form-control lowercase" type="email" id="email" name="email" required
                 placeholder="Scrivi il Tuo indirizzo email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel>
             <span class="text-danger"
                 *ngIf="f.controls['email']?.invalid && f.controls['email'].dirty && f.controls['email'].touched">

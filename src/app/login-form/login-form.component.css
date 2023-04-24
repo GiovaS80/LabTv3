@@ -1,5 +1,8 @@
-@media (min-width: 768px){
-    input{
+.lowercase {text-transform: lowercase;}
+@media (min-width: 768px)
+{
+    input
+    {
         width: 60%;
         margin: 0% auto;
     }

@@ -1,7 +1,16 @@
 <div class="container text-center m-3">
     <p *ngIf="isLoginVisible">Non Sei ancora Registrato? <span (click)="onReg()">Registrati Ora</span> </p>
     <p *ngIf="isRegVisible">Ritorna alla pagina di <span (click)="onLogin()">LogIn</span> </p>
-    <h6 *ngIf="isLoggedin" (click)="onLogout()">LogOut</h6>
+</div>
+
+<div *ngIf="isLoggedin" class="container text-center m-3 min-height">
+    <h4 class="btn btn-primary" (click)="onLogout()">LogOut</h4>
+</div>>
+
+<div *ngIf="!didTheDataArrive" class="loader"></div>
+
+<div *ngIf="errorMsg!=''" class="container text-center m-3">
+    <h3 class="text-danger errMsg"> {{errorMsg}} </h3>
 </div>
 
 <app-login-form 
@@ -15,8 +24,3 @@
     [regUser]="userReg"
     (transferData)="registerUser($event)"
 ></app-register-form>
-
-
-<!-- <button class="btn btn-primary m-3" (click)="gettAllUser()">Get</button> -->
-<!-- <button class="btn btn-primary m-3" (click)="registerUser()">Reg</button> -->
-<!-- <button class="btn btn-primary m-3" (click)="login()">Log</button> -->

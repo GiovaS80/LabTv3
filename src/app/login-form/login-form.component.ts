@@ -6,7 +6,8 @@ import { NgForm } from '@angular/forms';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-export class LoginFormComponent {
+export class LoginFormComponent 
+{
 
   @Input() loginUser:any = {}
 

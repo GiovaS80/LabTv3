@@ -28,8 +28,7 @@ export class DetailMovieComponent
 
   isVideoVisible:boolean=false
 
-  // videoId = 'QIZ9aZD6vs0';
-  videoId = '4r5L_PT5-34';
+  videoId = '';
 
   playerConfig = 
   {
@@ -38,43 +37,20 @@ export class DetailMovieComponent
     autoplay: 1
   };
 
-  onReady(e: any): void 
-  {
-    console.log(e, 'its ready')
-  }
+  onReady(e: any): void {console.log(e, 'its ready')}
 
-  backToList()
-  {
-    this.showList.emit()
-  }
+  backToList(){this.showList.emit()}
 
-  requiredMovie(title:string)
-  {
-    console.log(title);
-    this.askRequiredMovie.emit(title)
-  }
+  requiredMovie(title:string){this.askRequiredMovie.emit(title)}
 
   showVideo()
   {
     this.askVideo.emit(this.detailMovie.id)
-    // console.log(this.detailMovie.id);
-    console.log(this.infoVideo);
-    // this.videoId=this.infoVideo.videoId
-    setTimeout(()=>
-    {
-      console.log(this.infoVideo);
-      this.isVideoVisible=true
-    },555    )
+    setTimeout(()=>{this.isVideoVisible=true},555)
   }
 
-  closeVideoBox()
-  {
-    this.isVideoVisible=false
-  }
+  closeVideoBox(){this.isVideoVisible=false}
 
-  buy()
-  {
-    this.movieForPurchase.emit()
-  }
+  buy(){this.movieForPurchase.emit()}
   
 }//END class DetailMovieComponent

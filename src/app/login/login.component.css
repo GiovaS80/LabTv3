@@ -1,4 +1,6 @@
-span, h6{
+span
+{
     cursor: pointer;
     color: #0000ff;
 }
+.errMsg{white-space: break-spaces;}

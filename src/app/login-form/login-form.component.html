@@ -1,11 +1,11 @@
-<div class="container text-center">
+<div class="container text-center min-height">
     <h2>LogIn</h2>
 
     <form (ngSubmit)="sendData(f)" #f="ngForm">
         <div class="form-group m-3">
             <label for="email">Email</label>
-            <input class="form-control" type="email" id="email" name="email" required
-                placeholder="Scrivi il Tuo indirizzo email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel>
+            <input class="form-control lowercase" type="email" id="email" name="email" required
+                placeholder="scrivi il Tuo indirizzo email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel>
             <span class="text-danger"
                 *ngIf="f.controls['email']?.invalid && f.controls['email'].dirty && f.controls['email'].touched">
                 L'email è obbligatoria; l'email deve essere correttamente formattata
@@ -15,7 +15,7 @@
         <div class="form-group m-3">
             <label for="password">Password</label>
             <input class="form-control" type="password" id="password" name="password" required
-                placeholder="Inserisci la Password" ngModel
+                placeholder="inserisci la Password" ngModel
                 pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}">
             <span class="text-danger"
                 *ngIf="f.controls['password']?.invalid && f.controls['password'].dirty && f.controls['password'].touched">

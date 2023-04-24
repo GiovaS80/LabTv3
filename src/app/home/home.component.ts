@@ -77,7 +77,6 @@ export class HomeComponent
         {
           this.errorMsg = result.errorMessage
           this.movieDetail = result
-          console.log(result)
         },
         error: (err: any) => 
         {
@@ -103,7 +102,6 @@ export class HomeComponent
         {
           this.errorMsg = result.errorMessage
           this.videoInfo = result.videoId
-          console.log(result)
         },
         error: (err: any) => 
         {
@@ -114,8 +112,6 @@ export class HomeComponent
         complete: () => this.didTheDataArrive = true
       }
     )//END subscribe
-    // this.videoInfo = this.apiService.videoMovie.videoId
-    // console.log(this.videoInfo);
   }//END getInfoVideo
 
   returnToTheList() 
@@ -130,7 +126,8 @@ export class HomeComponent
     this.returnToTheList()
   }
 
-  addToFavorites() {
+  addToFavorites() 
+  {
     if (this.loginService.IsLoggedIn()) 
     {
       if (this.apiService.favoriteMovie.includes(this.movieDetail)) 
@@ -147,7 +144,6 @@ export class HomeComponent
     {
       alert('Effettua il LogIn per Aquistare. Se non sei Registrato, registrati per non perdere le novita.')
     }
-
   }//END addToFavorites
 
 }//END class HomeComponent
