@@ -34,7 +34,7 @@ export class ListMovieComponent
   search:string=''
   public href: string = "";
 
-  isSearchBarVisible:boolean=this.router.url=='/LabTvIndex.html/ricerca'
+  isSearchBarVisible:boolean=this.router.url=='/LabTv.com/ricerca'
 
   movieDetailToRequest(movie:any){this.movieDetail.emit(movie.id)}
 

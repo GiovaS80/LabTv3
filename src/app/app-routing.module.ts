@@ -6,11 +6,11 @@ import { LoginComponent } from './login/login.component';
 import { RestrictedAreaComponent } from './restrictedArea/restrictedArea.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-const routes: Routes = [
-  // {path:'', redirectTo:'/LabTvIndex.html'},
-  { path: '',   redirectTo: '/LabTvIndex.html', pathMatch: 'full' },
-  {path:'LabTvIndex.html/ricerca', component:HomeComponent},
-  {path:'LabTvIndex.html', component:HomeComponent},
+const routes: Routes = 
+[
+  { path: '',   redirectTo: '/LabTv.com', pathMatch: 'full' },
+  {path:'LabTv.com/ricerca', component:HomeComponent},
+  {path:'LabTv.com', component:HomeComponent},
   {path:'contact', component:ContactComponent},
   {path:'favorite', component:RestrictedAreaComponent},
   {path:'login', component:LoginComponent},

@@ -2,7 +2,7 @@
 <header class="header {{boo}} " >
   <!-- Logo -->
   <div class="logo fl">
-    <a [routerLink]="['/LabTvIndex.html']" ><img src="../../assets/img/logo-tipo.png" alt="Home" title="Home"></a>
+    <a [routerLink]="['/LabTv.com']" ><img src="../../assets/img/logo-tipo.png" alt="Home" title="Home"></a>
   </div>
   
   <div class="hamburger-div fl">
@@ -14,7 +14,7 @@
   <!-- Menu -->
   <nav class="nav">
       <ul class="menu">
-        <li class="subnav" id="home"><a class="home-link fl" title="HOME/CATALOGO" [routerLink]="['/LabTvIndex.html']">HOME / CATALOGO</a>
+        <li class="subnav" id="home"><a class="home-link fl" title="HOME/CATALOGO" [routerLink]="['/LabTv.com']">HOME / CATALOGO</a>
           <input *ngIf="isLoggedin" class="submenu" type="checkbox" id="submenu-home">
           <label *ngIf="isLoggedin" class="arrow fr" for="submenu-home"></label>         
           <ul  class="subnav-content">
@@ -32,7 +32,7 @@
               <li><a title="YT" href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube fa-beat-fade" style="color: #eb460f;"></i></a></li>
           </ul>
         </li>
-        <li><a [routerLink]="['/LabTvIndex.html/ricerca']">Ricerca</a> </li>
+        <li><a [routerLink]="['/LabTv.com/ricerca']">Ricerca</a> </li>
       </ul>
   </nav>
 
