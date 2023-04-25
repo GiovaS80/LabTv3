@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 .fl {float: left;}
-
 .fr {float: right;}
+.lowercase {text-transform: lowercase;}
+.capitalize {text-transform: capitalize;}
 
 .loader 
 {

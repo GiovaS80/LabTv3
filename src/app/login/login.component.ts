@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
+import { Reg } from '../models/user-interface';
+import { Log } from '../models/user-interface';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +26,7 @@ export class LoginComponent
 
   errorMsg:string=''
 
-  userReg:any = 
+  userReg:Reg = 
   {
     email:'',
     password:'',
@@ -32,7 +34,7 @@ export class LoginComponent
     lastname:'',
     idMovie: []
   }
-  userLogin:any =  
+  userLogin:Log =  
   { 
     email:'',
     password:''
@@ -59,7 +61,7 @@ export class LoginComponent
     this.onLogin()
   }
 
-  registerUser(user:any)
+  registerUser(user:Reg)
   {
     this.didTheDataArrive = false
     this.userReg=user
@@ -74,7 +76,7 @@ export class LoginComponent
     )//END subscribe
   }//END registerUser
 
-  login(user:any){
+  login(user:Log){
     this.didTheDataArrive = false
     this.userLogin=user
     this.loginService.getLogin(this.userLogin).subscribe

@@ -1,10 +1,16 @@
-.box-card{
+.box-card
+{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-button{
+button
+{
     position: absolute;
     bottom: 1%;
     right: 1%;
+}
+.card
+{
+    width: 18rem;
 }

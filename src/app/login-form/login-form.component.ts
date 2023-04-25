@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Log } from '../models/user-interface';
 
 @Component({
   selector: 'app-login-form',
@@ -9,9 +10,12 @@ import { NgForm } from '@angular/forms';
 export class LoginFormComponent 
 {
 
-  @Input() loginUser:any = {}
+  @Input() loginUser:Log = {
+    email: '',
+    password: ''
+  }
 
-  @Output() transferData = new EventEmitter<any>()
+  @Output() transferData = new EventEmitter<Log>()
 
   sendData(form:NgForm)
   {

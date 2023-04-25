@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { ListMovie } from '../models/movie-interface';
 
 @Component({
   selector: 'app-list-movie',
@@ -22,12 +23,12 @@ export class ListMovieComponent
     }
   }//END ngOnInit
   
-  @Input() fullListMovie:any=[]
+  @Input() fullListMovie:Array<ListMovie>=[]
   @Input() searchMovie:string=''
 
   @Output() movieDetail = new EventEmitter<string>()
 
-  listMovie:Array<any>=[]
+  listMovie:Array<ListMovie>=[]
 
   index:number=0
 

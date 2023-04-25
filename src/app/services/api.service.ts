@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ListMovie } from '../models/movie-interface';
 
 @Injectable({providedIn: 'root'})
 export class ApiService 
@@ -9,11 +10,8 @@ export class ApiService
     apiKeyImdb: string = 'k_5b2jac4w'
     wsImdbList: string = 'https://imdb-api.com/en/API/MostPopularMovies/'+this.apiKeyImdb
     //id image title plot stars directors genres similars[{title}]
-    cont:number=0
     getList(): Observable<any> 
     {
-        console.log('cont = ' + this.cont);
-        this.cont=this.cont+1
         return this.http.get(this.wsImdbList)
     }
 
@@ -29,8 +27,8 @@ export class ApiService
         return this.http.get(wsImdbVideo)
     }
 
-    fullListMovies: Array<any> =[]
-    fullListMovie: Array<any> = [
+    fullListMovie: Array<ListMovie> =[]
+    fullListMovies: Array<ListMovie> = [
         {
             "id": "tt10366206",
             "rank": "1",

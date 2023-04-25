@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
+import { ListMovie } from '../models/movie-interface';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,6 @@ export class HomeComponent
     (
       private apiService: ApiService,
       private loginService: LoginService,
-      private router: Router
     ) { }
   ngOnInit(): void 
   {
@@ -29,7 +28,7 @@ export class HomeComponent
     else {this.getListMovie()}
   }
 
-  fullListMovie: Array<any> = []
+  fullListMovie: Array<ListMovie> = []
   movieDetail: any
 
   videoInfo: string = ''
@@ -43,6 +42,7 @@ export class HomeComponent
 
   getListMovie() 
   {
+    console.log('getListMovie');
     this.didTheDataArrive = false
     this.apiService.getList().subscribe
     (

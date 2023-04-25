@@ -1,5 +1,5 @@
 <div class="container text-center m-3">
-    <h1> {{userName}} </h1>
+    <h1 class="capitalize"> {{userName}} </h1>
     <h1>Benvenuto nella tua area riservata</h1>
     <h3>Ecco la lista dei tuoi Film</h3>
 </div>
@@ -9,7 +9,7 @@
         <h5>Nessun Film nella tua Area Riservata</h5>
         <p>Prova ad acquistare un Film dalla <span>Home/Catalogo</span></p>
     </div>
-    <div class="card m-1" style="width: 18rem;" *ngFor="let movie of favorite">
+    <div class="card m-1" *ngFor="let movie of favorite">
         <img src={{movie.image}} class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{movie.title}}</h5>

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Reg } from '../models/user-interface';
 
 @Component({
   selector: 'app-register-form',
@@ -9,9 +10,15 @@ import { NgForm } from '@angular/forms';
 export class RegisterFormComponent 
 {
 
-  @Input() regUser:any = { }
+  @Input() regUser:Reg = {
+    email: '',
+    password: '',
+    firstname: '',
+    lastname: '',
+    idMovie: []
+  }
 
-  @Output() transferData = new EventEmitter<any>()
+  @Output() transferData = new EventEmitter<Reg>()
 
   notAlowed:Array<string>=['my-account', 'myaccount', 'my', 'account', 'admin', 'user']
 
