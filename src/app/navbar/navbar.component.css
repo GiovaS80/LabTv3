@@ -157,7 +157,11 @@ ul{list-style: none;}
     width: 100%;
     min-height: 1vw;
   }
-  .arrow{padding: 4%;}
+  .arrow{
+    padding: 4%;
+    display: none;
+  }
+  .subnav:hover .subnav-content {display: flex;}
 
   .hamb{display: none;}
 }/* END @media */
