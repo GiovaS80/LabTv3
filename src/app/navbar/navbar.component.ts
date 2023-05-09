@@ -35,8 +35,8 @@ export class NavbarComponent
   isChecked:boolean=false
   userName:string | null=''
   log:string=''
-  boo:string='low'
+  headerClass:string='low'
 
-  sideMenu(e:any){this.boo=e?'low':'high'}
+  sideMenu(e:any){this.headerClass=e?'low':'high'}
 
 }//EMD class NavbarComponent

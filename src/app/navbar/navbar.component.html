@@ -1,5 +1,5 @@
 <!-- Navigation bar -->
-<header class="header {{boo}} " >
+<header class="header {{headerClass}} " >
   <!-- Logo -->
   <div class="logo fl">
     <a [routerLink]="['/LabTv.com']" ><img src="../../assets/img/logo-tipo.png" alt="Home" title="Home"></a>
@@ -17,7 +17,7 @@
         <li class="subnav" id="home"><a class="home-link fl" title="HOME/CATALOGO" [routerLink]="['/LabTv.com']">HOME / CATALOGO</a>
           <input *ngIf="isLoggedin" class="submenu" type="checkbox" id="submenu-home">
           <label *ngIf="isLoggedin" class="arrow fr" for="submenu-home"></label>         
-          <ul  class="subnav-content">
+          <ul *ngIf="isLoggedin"  class="subnav-content">
               <li><a title="I Miei Preferiti" [routerLink]="['/favorite']">I Miei Preferiti</a></li>
           </ul>
         </li>

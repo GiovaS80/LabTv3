@@ -1,6 +1,5 @@
 {
-  "users": 
-  [
+  "users": [
     {
       "email": "esperto@programmatore.it",
       "password": "$2a$10$dh73CvqOqyivlo9uPGWeJOjA5wBpK/QRbuMyMm/yGq5ftwGNsX7fC",
@@ -8,13 +7,20 @@
       "lastname": "programmatore",
       "idMovie": [],
       "id": 1
+    },
+    {
+      "email": "giomain.pv@gmail.com",
+      "password": "$2a$10$NTYQhjziwmJHi2W9YAZZ9.XJMoGba/cNWDZjT6EoUGSasDXaHe8c6",
+      "firstname": "Giovanni",
+      "lastname": "Manichetti",
+      "idMovie": [],
+      "id": 2
     }
   ],
-  "posts": 
-  [
+  "posts": [
     {
-      "email":"esperto@programmatore.it", 
-      "pw":"SiFaPerDir3!"
+      "email": "esperto@programmatore.it",
+      "pw": "SiFaPerDir3!"
     }
   ]
 }
